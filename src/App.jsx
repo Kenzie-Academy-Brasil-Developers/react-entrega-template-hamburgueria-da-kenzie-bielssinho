@@ -9,7 +9,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
   const [search, setSearch] = useState('');
   const [searchProducts, setSearchProducts] = useState([]);
-  const [cartValue, setCartValue] = useState(0);
+  const [cartValue, setCartValue] = useState([]);
 
   useEffect(() => {
     fetch('https://hamburgueria-kenzie-json-serve.herokuapp.com/products')

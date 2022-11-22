@@ -1,0 +1,33 @@
+.cardCar{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.cardCar div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.cardCar img{
+    width: 85px;
+}
+
+.cardCar button{
+    border: none;
+    height: 20px;
+    padding: 2px;
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--color-grey-50);
+}
+
+button:hover{
+    text-decoration: underline;
+}

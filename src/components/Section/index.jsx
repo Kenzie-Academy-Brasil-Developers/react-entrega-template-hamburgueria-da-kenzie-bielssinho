@@ -12,7 +12,7 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
     if(!searchProducts.length){
         return (
             <section>
-                <List products={products} setCartProducts={setCartProducts} />
+                <List cartProducts={cartProducts} products={products} setCartProducts={setCartProducts} />
                 <Car 
                     cartProducts={cartProducts}
                     setCartProducts={setCartProducts}
@@ -28,7 +28,7 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
                     <h3>Resultados para: <span>{search}</span></h3>
                     <button onClick={eventClear}  type='submit'>Limpar Busca</button>
                 </div>
-                <List products={searchProducts} setCartProducts={setCartProducts} />
+                <List cartProducts={cartProducts} products={searchProducts} setCartProducts={setCartProducts} />
                 <Car 
                     cartProducts={cartProducts}
                     setCartProducts={setCartProducts}
