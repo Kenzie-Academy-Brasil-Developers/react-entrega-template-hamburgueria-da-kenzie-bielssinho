@@ -42,3 +42,17 @@ input:focus{
     color: var(--color-grey-0);
     font-weight: 600;
 }
+
+@media(min-width: 700px){
+    .header{
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 800px;
+        margin: 0 auto;
+    }
+
+    .form button{
+        top: 16px;
+        left: 1335px;
+    }
+}

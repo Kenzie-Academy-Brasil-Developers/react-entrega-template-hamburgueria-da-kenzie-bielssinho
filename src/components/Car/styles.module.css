@@ -1,3 +1,9 @@
+.div{
+    width: 450px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
 .car{
     width: 100%;
     margin: 0 auto;
@@ -76,4 +82,14 @@
     border-radius: 4px;
     color: var(--color-grey-50);
     font-weight: 700;
+}
+
+@media(min-width: 700px){
+    .car{
+        width: 400px;
+    }
+
+    .carContent ul{
+        height: 300px;
+    }
 }
