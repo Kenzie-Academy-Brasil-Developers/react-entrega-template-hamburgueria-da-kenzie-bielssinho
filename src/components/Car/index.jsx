@@ -28,8 +28,7 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
                                 name={product.name}
                                 category={product.category}
                                 setCartProducts={setCartProducts}
-                                cartValue={cartValue}
-                                setCartValue={setCartValue}
+                                cartProducts={cartProducts}
                             />)
                         }
                     </ul>
