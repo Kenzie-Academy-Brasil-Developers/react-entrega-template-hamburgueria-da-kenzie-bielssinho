@@ -1,5 +1,6 @@
+import { StyledDivContent, StyledDivVazio } from '../../styles/car';
 import { CardCar } from './CardCar';
-import styles from './styles.module.css';
+
 
 export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue }) => {
     const listValue = cartProducts.map(product => product.price)
@@ -8,15 +9,15 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
     
     if(!cartProducts.length){
         return (
-            <div className={styles.car}>
+            <StyledDivVazio>
                 <h4>Carrinho de compras</h4>
                 <p>Carrinho Vazio</p>
-            </div>
+            </StyledDivVazio>
         )
     }else{
         return (
-            <div className={styles.div}>
-                <div className={styles.carContent}>
+            <StyledDivContent>
+                <div className='carContent'>
                     <h4>Carrinho de compras</h4>
                     <ul>
                         {
@@ -33,14 +34,14 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
                         }
                     </ul>
                 </div>
-                <div className={styles.value}>
+                <div className='value'>
                     <div>
                         <h4>Total</h4>
                         <span>R$ {value}</span>
                     </div>
                     <button onClick={() => setCartProducts([])}>Remover Todos</button>
                 </div>
-            </div>
+            </StyledDivContent>
         )
     }
 }

@@ -1,5 +1,5 @@
 import logo from '../../img/logo.svg';
-import styles from './styles.module.css';
+import { StyledHeader } from '../../styles/header';
 
 export const Header = ({ search, setSearch, products, setSearchProducts }) => {
     const eventSearch = (e) =>{
@@ -12,12 +12,12 @@ export const Header = ({ search, setSearch, products, setSearchProducts }) => {
     };
 
     return (
-        <header className={styles.header}>
+        <StyledHeader>
             <img src={logo} alt="logo Burguer Kenzie" />
-            <form className={styles.form} onSubmit={eventSearch}>
+            <form className='form' onSubmit={eventSearch}>
                 <input type="text" name="search" onChange={e => setSearch(e.target.value)} value={search} placeholder='Pesquisar'/>
                 <button type='submit'>Pesquisar</button>
             </form>
-        </header>
+        </StyledHeader>
     )
 }

@@ -1,4 +1,5 @@
-import styles from './styles.module.css';
+import { StyledCarCard } from '../../../styles/carCard';
+
 
 export const CardCar = ({ id, image, name, category, cartProducts, setCartProducts }) => {
     const eventRemove = () => {
@@ -9,15 +10,15 @@ export const CardCar = ({ id, image, name, category, cartProducts, setCartProduc
 
 
     return (
-        <li className={styles.cardCar}>
+        <StyledCarCard>
             <div>
                 <img src={image} alt={name} />
-                <div className={styles.info}>
+                <div className='info'>
                     <h3>{name}</h3>
                     <p>{category}</p>
                 </div>
             </div>
             <button id={id} onClick={eventRemove}>Remover</button>
-        </li>
+        </StyledCarCard>
     )
 }

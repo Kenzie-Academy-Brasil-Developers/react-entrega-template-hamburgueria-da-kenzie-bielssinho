@@ -1,6 +1,6 @@
+import { StyledSection } from '../../styles/section';
 import { Car } from '../Car';
 import { List } from '../List';
-import styles from './styles.module.css';
 
 export const Section = ({ products, search, setSearch, searchProducts, cartProducts, setCartProducts, cartValue, setCartValue }) => {
     const eventClear = (e) => {
@@ -11,7 +11,7 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
 
     if(!searchProducts.length){
         return (
-            <section>
+            <StyledSection>
                 <List cartProducts={cartProducts} products={products} setCartProducts={setCartProducts} />
                 <Car 
                     cartProducts={cartProducts}
@@ -19,23 +19,25 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
                     cartValue={cartValue}
                     setCartValue={setCartValue}
                 />
-            </section>
+            </StyledSection>
         )
     }else{
         return(
-            <section>
-                <div className={styles.filter}>
-                    <h3>Resultados para: <span>{search}</span></h3>
-                    <button onClick={eventClear}  type='submit'>Limpar Busca</button>
+            <StyledSection>
+                <div className='divFilter'>
+                    <div className='filter'>
+                        <h3>Resultados para: <span>{search}</span></h3>
+                        <button onClick={eventClear}  type='submit'>Limpar Busca</button>
+                    </div>
+                    <List cartProducts={cartProducts} products={searchProducts} setCartProducts={setCartProducts} />
                 </div>
-                <List cartProducts={cartProducts} products={searchProducts} setCartProducts={setCartProducts} />
                 <Car 
                     cartProducts={cartProducts}
                     setCartProducts={setCartProducts}
                     cartValue={cartValue}
                     setCartValue={setCartValue}
                 />
-            </section>
+            </StyledSection>
         )
     }
 }
