@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Section } from "./components/Section";
-
+import { api } from "./services/Api";
+import { GlobalStyle } from "./styles/global";
+// fetch('https://hamburgueria-kenzie-json-serve.herokuapp.com/products')
+    // .then((response) => response.json())
+    // .then((response) => )
+    // .catch((err) => console.log(err))
 
 
 function App() {
@@ -12,14 +17,22 @@ function App() {
   const [cartValue, setCartValue] = useState([]);
 
   useEffect(() => {
-    fetch('https://hamburgueria-kenzie-json-serve.herokuapp.com/products')
-    .then((response) => response.json())
-    .then((response) => setProducts(response))
-    .catch((err) => console.log(err))
+    async function getProducts(){
+      try{
+        const response = await api.get('products');
+
+        setProducts(response.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
+
+    getProducts();
   }, []);
 
   return (
     <div>
+      <GlobalStyle/>
       <Header
         search={search} 
         setSearch={setSearch}

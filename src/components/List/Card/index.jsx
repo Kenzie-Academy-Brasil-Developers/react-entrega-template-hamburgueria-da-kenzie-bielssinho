@@ -3,7 +3,12 @@ export const Card = ({ products, name, category, price, image, id, setCartProduc
         e.preventDefault();
 
         const prod = products.find(product => product.id == id);
-        setCartProducts([...cartProducts, prod]);
+        
+        const verify = cartProducts.find(product => product.id == prod.id);
+
+        if(!verify){
+            setCartProducts([...cartProducts, prod]);
+        }
     }
 
 

@@ -1,6 +1,13 @@
 import styles from './styles.module.css';
 
-export const CardCar = ({ id, image, name, category, setCartProducts }) => {
+export const CardCar = ({ id, image, name, category, cartProducts, setCartProducts }) => {
+    const eventRemove = () => {
+        const newCart = cartProducts.filter(product => product.id != id);
+
+        setCartProducts(newCart)
+    }
+
+
     return (
         <li className={styles.cardCar}>
             <div>
@@ -10,7 +17,7 @@ export const CardCar = ({ id, image, name, category, setCartProducts }) => {
                     <p>{category}</p>
                 </div>
             </div>
-            <button id={id}>Remover</button>
+            <button id={id} onClick={eventRemove}>Remover</button>
         </li>
     )
 }
