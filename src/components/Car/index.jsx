@@ -15,7 +15,7 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
         )
     }else{
         return (
-            <>
+            <div className={styles.div}>
                 <div className={styles.carContent}>
                     <h4>Carrinho de compras</h4>
                     <ul>
@@ -40,7 +40,7 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
                     </div>
                     <button onClick={() => setCartProducts([])}>Remover Todos</button>
                 </div>
-            </>
+            </div>
         )
     }
 }
