@@ -14,13 +14,14 @@ export const StyledHeader = styled.header`
     }
 
     & .form{
+        width: 270px;
+        position: relative;
         display: flex;
         gap: 5px;
     }
 
     .form input{
-        width: 270px;
-        position: relative;
+        width: 100%;
         height: 44px;
         border: 1px solid var(--color-grey);
         border-radius: 4px;
@@ -33,8 +34,8 @@ export const StyledHeader = styled.header`
 
     .form button{
         position: absolute;
-        left: 210px;
-        top: 56px;
+        top: 5px;
+        left: 190px;
         height: 32px;
         border: 1px solid var(--color-primary);
         border-radius: 4px;
@@ -49,10 +50,5 @@ export const StyledHeader = styled.header`
         justify-content: space-evenly;
         gap: 800px;
         margin: 0 auto;
-
-        .form button{
-            top: 16px;
-            left: 1335px;
-        }
     }
 `

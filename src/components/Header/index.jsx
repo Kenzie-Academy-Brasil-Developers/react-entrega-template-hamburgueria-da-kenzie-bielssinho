@@ -1,5 +1,5 @@
 import logo from '../../img/logo.svg';
-import { StyledHeader } from '../../styles/header';
+import { StyledHeader } from './header';
 
 export const Header = ({ search, setSearch, products, setSearchProducts }) => {
     const eventSearch = (e) =>{
@@ -8,6 +8,8 @@ export const Header = ({ search, setSearch, products, setSearchProducts }) => {
         if(search != ''){
             const listProduct = products.filter(product => product.category == search || product.name == search);
             setSearchProducts(listProduct);
+        }else{
+            setSearchProducts('')
         }
     };
 

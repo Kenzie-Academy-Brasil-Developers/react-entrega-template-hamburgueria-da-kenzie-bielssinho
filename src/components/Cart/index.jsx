@@ -1,8 +1,8 @@
-import { StyledDivContent, StyledDivVazio } from '../../styles/car';
-import { CardCar } from './CardCar';
+import { StyledDivContent, StyledDivVazio } from './cart';
+import { CardCar } from './CardCart';
 
 
-export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue }) => {
+export const  Car = ({ cartProducts, setCartProducts }) => {
     const listValue = cartProducts.map(product => product.price)
             
     const value = listValue.reduce((total, currentValue) => { return total + currentValue}, 0)
@@ -24,10 +24,7 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
                             cartProducts.map((product, index) => 
                             <CardCar 
                                 key={index} 
-                                id={product.id} 
-                                image={product.img}
-                                name={product.name}
-                                category={product.category}
+                                product={product}
                                 setCartProducts={setCartProducts}
                                 cartProducts={cartProducts}
                             />)
@@ -37,7 +34,7 @@ export const  Car = ({ cartProducts, setCartProducts, cartValue, setCartValue })
                 <div className='value'>
                     <div>
                         <h4>Total</h4>
-                        <span>R$ {value}</span>
+                        <span>R$ {value.toFixed([2])}</span>
                     </div>
                     <button onClick={() => setCartProducts([])}>Remover Todos</button>
                 </div>

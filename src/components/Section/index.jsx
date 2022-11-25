@@ -1,5 +1,5 @@
-import { StyledSection } from '../../styles/section';
-import { Car } from '../Car';
+import { StyledSection } from './section';
+import { Car } from '../Cart';
 import { List } from '../List';
 
 export const Section = ({ products, search, setSearch, searchProducts, cartProducts, setCartProducts, cartValue, setCartValue }) => {
