@@ -1,8 +1,8 @@
-export const Card = ({ products, name, category, price, image, id, setCartProducts, cartProducts }) => {
+export const Card = ({ products, product, id, setCartProducts, cartProducts }) => {
     const eventAddCar = (e) => {
         e.preventDefault();
 
-        const prod = products.find(product => product.id == id);
+        const prod = products.find(productCurrent => productCurrent.id == id);
         
         const verify = cartProducts.find(product => product.id == prod.id);
 
@@ -11,14 +11,13 @@ export const Card = ({ products, name, category, price, image, id, setCartProduc
         }
     }
 
-
     return (
         <li>
-            <img src={image} alt={name} />
+            <img src={product.img} alt={product.name} />
             <div>
-                <h3>{name}</h3>
-                <p>{category}</p>
-                <span>R$ {price}</span>
+                <h3>{product.name}</h3>
+                <p>{product.category}</p>
+                <span>R$ {product.price}</span>
                 <button onClick={eventAddCar} id={id} type="submit">Adicionar</button>
             </div>
         </li>
