@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
-import { Header } from "./components/Header";
-import { Section } from "./components/Section";
-import { api } from "./services/Api";
-import { GlobalStyle } from "./styles/global";
-// fetch('https://hamburgueria-kenzie-json-serve.herokuapp.com/products')
-    // .then((response) => response.json())
-    // .then((response) => )
-    // .catch((err) => console.log(err))
+import { useEffect, useState } from 'react';
+import { Header } from './components/Header';
+import { Section } from './components/Section';
+import { api } from './services/Api';
+import { GlobalStyle } from './styles/global';
 
 
 function App() {
