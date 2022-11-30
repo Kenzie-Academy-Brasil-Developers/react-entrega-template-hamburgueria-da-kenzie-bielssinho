@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 export const Card = ({ products, product, id, setCartProducts, cartProducts }) => {
     const eventAddCar = (e) => {
         e.preventDefault();
@@ -8,6 +11,8 @@ export const Card = ({ products, product, id, setCartProducts, cartProducts }) =
 
         if(!verify){
             setCartProducts([...cartProducts, prod]);
+        }else{
+            toast.error('Esse item já pertence ao carrinho!')
         }
     }
 
@@ -18,7 +23,7 @@ export const Card = ({ products, product, id, setCartProducts, cartProducts }) =
                 <h3>{product.name}</h3>
                 <p>{product.category}</p>
                 <span>R$ {product.price}</span>
-                <button onClick={eventAddCar} id={id} type="submit">Adicionar</button>
+                <button onClick={eventAddCar} id={id} type='submit'>Adicionar</button>
             </div>
         </li>
     )

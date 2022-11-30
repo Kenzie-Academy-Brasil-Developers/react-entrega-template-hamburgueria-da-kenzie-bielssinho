@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledListCard = styled.ul`
     margin: 0 auto;
@@ -22,7 +22,7 @@ export const StyledListCard = styled.ul`
 
     img{
         width: 100%;
-        height: 130px;
+        height: 170px;
         background-color: var(--color-grey-20);
     }
 

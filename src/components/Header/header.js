@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
+    width: 100vw;
     background-color: var(--color-grey-20);
     display: flex;
     flex-direction: column;
@@ -14,7 +15,8 @@ export const StyledHeader = styled.header`
     }
 
     & .form{
-        width: 270px;
+        width: 100%;
+        max-width: 280px;
         position: relative;
         display: flex;
         gap: 5px;
@@ -47,8 +49,15 @@ export const StyledHeader = styled.header`
 
     @media(min-width: 700px){
         flex-direction: row;
-        justify-content: space-evenly;
-        gap: 800px;
-        margin: 0 auto;
+        gap: 500px;
+        margin:  auto;
+
+        .form{
+            align-items: center;
+        }
+
+        .form button{
+            position: static;
+        }
     }
 `

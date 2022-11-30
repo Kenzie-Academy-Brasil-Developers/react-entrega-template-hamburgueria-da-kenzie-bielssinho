@@ -1,6 +1,8 @@
 import { StyledSection } from './section';
 import { Car } from '../Cart';
 import { List } from '../List';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export const Section = ({ products, search, setSearch, searchProducts, cartProducts, setCartProducts, cartValue, setCartValue }) => {
     const eventClear = (e) => {
@@ -19,6 +21,18 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
                     cartValue={cartValue}
                     setCartValue={setCartValue}
                 />
+                <ToastContainer
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             </StyledSection>
         )
     }else{
@@ -36,6 +50,18 @@ export const Section = ({ products, search, setSearch, searchProducts, cartProdu
                     setCartProducts={setCartProducts}
                     cartValue={cartValue}
                     setCartValue={setCartValue}
+                />
+                <ToastContainer
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
                 />
             </StyledSection>
         )

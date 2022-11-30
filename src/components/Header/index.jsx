@@ -15,9 +15,9 @@ export const Header = ({ search, setSearch, products, setSearchProducts }) => {
 
     return (
         <StyledHeader>
-            <img src={logo} alt="logo Burguer Kenzie" />
+            <img src={logo} alt='logo Burguer Kenzie' />
             <form className='form' onSubmit={eventSearch}>
-                <input type="text" name="search" onChange={e => setSearch(e.target.value)} value={search} placeholder='Pesquisar'/>
+                <input type='text' name='search' onChange={e => setSearch(e.target.value)} value={search} placeholder='Pesquisar'/>
                 <button type='submit'>Pesquisar</button>
             </form>
         </StyledHeader>
