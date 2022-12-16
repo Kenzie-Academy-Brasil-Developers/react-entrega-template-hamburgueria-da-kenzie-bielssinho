@@ -53,7 +53,6 @@ export const DashProvider = ({ children }: iDashProviderProps) => {
        
         const itemFilter = search.toLowerCase();
         const listProduct: iProducts[] = items.filter(product => product.category.toLowerCase().includes(itemFilter) || product.name.toLowerCase().includes(itemFilter));
-        console.log(listProduct)
         searchProducts.length ? setSearchProducts([]) :
         setSearchProducts(listProduct);
        
