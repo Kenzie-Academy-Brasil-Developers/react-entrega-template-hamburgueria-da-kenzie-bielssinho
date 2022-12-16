@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import { SubmitHandler} from 'react-hook-form';
@@ -10,52 +10,53 @@ interface iAuthProviderProps{
 }
 
 interface iAuthProviderValue{
-    items: null | object;
+    items: iProducts[];
     loading: boolean;
     submit(data: iFormLogin): Promise<void>;
+    loadUser: () => Promise<void>;
 }
 
-// interface iProducts{
-//     id: number;
-//     name: string;
-//     category: string;
-//     price: number;
-//     img: string;
-// }
+export interface iProducts{
+    id: number;
+    name: string;
+    category: string;
+    price: number;
+    img: string;
+}
 
 export const AuthContext = createContext({} as iAuthProviderValue);
 
 export const AuthProvider = ( {children}: iAuthProviderProps ) => {
-    const [ items, setItems ] = useState(null);
+    const [ items, setItems ] = useState<iProducts[]>([]);
     const [ loading, setLoading ] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        const loadUser = async () => {
-            const token = localStorage.getItem('@TOKEN');
-
-            if(!token){
-                setLoading(false);
-                return;
-            }
-
-            try {
-                api.defaults.headers.common.authorization = `Bearer ${token}`;
     
-                const { data } = await api.get('products')
-                console.log(data)
-                setItems(data);
-    
-            } catch (error) {
-                navigate('/');
-            }finally{
-                setLoading(false);
-            } 
+    const loadUser = async () => {
+        const token = localStorage.getItem('@TOKEN');
+        const user = localStorage.getItem('@USER')
+
+        if(!token){
+            setLoading(false);
+            return navigate('/');
         }
 
-        loadUser()
-    }, [navigate]);
+        try {
+            api.defaults.headers.common.authorization = `Bearer ${token}`;
+    
+            const { data } = await api.get('products')
+            
+            setItems(data);
+            navigate(`/dashboard/${user}`);
+        } catch (error) {
+            navigate('/');
+            localStorage.clear();
+        }finally{
+            setLoading(false);
+        } 
+    }
+  
     
 
     const submit: SubmitHandler<iFormLogin> = async (data) => {
@@ -63,6 +64,7 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
             const response = await api.post('login', data)
             const { accessToken } = response.data;
             localStorage.setItem('@TOKEN', accessToken)
+            localStorage.setItem('@USER', response.data.user.name)
             api.defaults.headers.common.authorization = `Bearer ${accessToken}`;
 
             
@@ -75,7 +77,7 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
     }
 
     return (
-        <AuthContext.Provider value ={{ items, loading, submit }}>
+        <AuthContext.Provider value ={{ items, loading, submit, loadUser }}>
             {children}
         </AuthContext.Provider>
     )

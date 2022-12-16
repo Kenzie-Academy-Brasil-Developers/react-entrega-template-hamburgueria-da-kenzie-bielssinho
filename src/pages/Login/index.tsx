@@ -19,7 +19,7 @@ export interface iFormLogin{
 }
 
 export const Login = () => {
-    const { submit } = useContext(AuthContext);
+    const { submit, loadUser } = useContext(AuthContext);
 
     const formLoginSchema = yup.object().shape({
         email: yup.string().required('E-mail obrigatório'),
@@ -29,6 +29,7 @@ export const Login = () => {
     const { register, handleSubmit, formState: { errors }} = useForm<iFormLogin>({
         resolver: yupResolver(formLoginSchema)
     })
+
 
 
     return(

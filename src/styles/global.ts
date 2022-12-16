@@ -6,6 +6,7 @@ export default createGlobalStyle`
         --color-primary-100: rgba(39, 174, 96, 0.1);
         --color-secundary: #eb5757;
 
+        --black: #000000;
         --color-grey-600: #333333;
         --color-grey-300: #828282;
         --color-grey-100: #e0e0e0;

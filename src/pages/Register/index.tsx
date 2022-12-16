@@ -1,5 +1,5 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import Logo from '../../img/logo.svg';
 import Bag from '../../img/shopping-bag.svg';
@@ -7,7 +7,6 @@ import { Container } from '../../styles/container';
 import { StyledFormRegisterPage } from "./styles";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorYup } from '../../styles/yupError';
-import { api } from '../../services/api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
@@ -27,7 +26,7 @@ export const Register = () => {
     const formRegisterSchema = yup.object().shape({
         name: yup.string().required('Nome é obrigatório!'),
         email: yup.string().required('E-mail é obrigatório!').email('E-mail inválido!'),
-        password: yup.string().required('Senha é obrigatório!'),
+        password: yup.string().required('Senha é obrigatório!').min(6),
         confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'As senhas precisam ser iguais!')
     });
 
