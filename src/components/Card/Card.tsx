@@ -8,7 +8,7 @@ export const Card = ( { item, id, cart, setCart }: any) => {
     const eventAddCar = (e: any) => {
         e.preventDefault();
 
-        const prod: any= items.find(productCurrent => productCurrent.id == id);
+        let prod: any= items.find(productCurrent => productCurrent.id == id);
         
         prod.counter = 1
 

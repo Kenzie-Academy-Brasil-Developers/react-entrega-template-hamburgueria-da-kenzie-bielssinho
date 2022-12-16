@@ -48,7 +48,9 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
             const { data } = await api.get('products')
             
             setItems(data);
-            navigate(`/dashboard/${user}`);
+            if(token){
+                navigate(`/dashboard/${user}`);
+            }
         } catch (error) {
             navigate('/');
             localStorage.clear();
