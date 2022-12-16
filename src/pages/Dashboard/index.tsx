@@ -6,22 +6,13 @@ import { BiSearch } from 'react-icons/bi';
 import Logo from '../../img/logo.svg';
 import { StyledDiv, StyledList } from './styles';
 import { Card } from '../../components/Card/Card';
-import { iProducts } from '../../context/AuthContext';
 import { ModalCart } from '../../components/Cart/Cart';
-import { useNavigate } from 'react-router-dom';
 import { DashContext } from '../../context/DashContext';
 
 
 export const Dashboard = () => {
     const { items, loading, loadUser } = useContext(AuthContext);
     const { setSearch, setCart, cart, setModal, modal, openSearchBtn, closeSearchBtn, eventSearch, logout, openSearch, search, searchProducts } = useContext(DashContext);
-    // const [ openSearch, setOpenSearch ] = useState(false);
-    // const [ search, setSearch ] = useState('');
-    // const [ searchProducts, setSearchProducts] = useState<iProducts[]>([]);
-    // const [ cart, setCart ] = useState<iProducts[]>([]);
-    // const [ modal, setModal ] = useState(false);
-
-    // const navigate = useNavigate();
 
     useEffect(() => {
         loadUser()
@@ -30,36 +21,6 @@ export const Dashboard = () => {
     if(loading){
         return null;
     }
-
-    // const openSearchBtn = () => {
-    //     if(!openSearch){
-    //         setOpenSearch(true)
-    //     }
-    // }
-
-    // const closeSearchBtn = () => {
-    //     if(openSearch){
-    //         setOpenSearch(false)
-    //     }
-    // }
-
-    // const eventSearch = (e: any) =>{
-    //     e.preventDefault();
-
-       
-    //     const itemFilter = search.toLowerCase();
-    //     const listProduct: iProducts[] = items.filter(product => product.category.toLowerCase().includes(itemFilter) || product.name.toLowerCase().includes(itemFilter));
-    //     console.log(listProduct)
-    //     searchProducts.length ? setSearchProducts([]) :
-    //     setSearchProducts(listProduct);
-       
-    // };
-
-    // const logout = () => {
-    //     localStorage.clear();
-    //     navigate('/')
-    // }
-
 
     return(
     <StyledDiv>

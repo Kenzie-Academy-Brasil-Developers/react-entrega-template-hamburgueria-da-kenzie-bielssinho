@@ -13,7 +13,6 @@ export const Card = ( { item, id, cart, setCart }: any) => {
         prod.counter = 1
 
         const verify = cart.find((product: any) => product.id === prod.id);
-        console.log(cart)
         if(!verify){
             setCart([...cart, prod]);
         }else{
