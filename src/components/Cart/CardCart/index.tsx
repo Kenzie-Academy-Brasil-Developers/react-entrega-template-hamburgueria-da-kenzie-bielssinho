@@ -15,7 +15,7 @@ export const CardCart = ({ cart, product, setCart }: any) => {
     const sub = () => {
         return product.counter + 1;
     }
-
+    
     return(
         <li>
             <div className='item'>
