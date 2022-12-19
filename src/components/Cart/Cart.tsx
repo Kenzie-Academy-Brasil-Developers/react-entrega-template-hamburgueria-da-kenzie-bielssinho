@@ -53,7 +53,7 @@ export const ModalCart= ({ setModal, cart, setCart }: any) => {
                             />
                             )
                             :
-                            <h2>Carrinho vazio</h2>
+                            <h2>Sacola vazia</h2>
                         }
                     </ul>
                     {
@@ -62,9 +62,10 @@ export const ModalCart= ({ setModal, cart, setCart }: any) => {
                             <div className='tot'>
                                 <p>Total</p>
                                 <span className='totValue'>{value.toLocaleString("pt-br", {
-                        style: "currency",
-                        currency: "BRL",
-                    })}</span>
+                                    style: "currency",
+                                    currency: "BRL",
+                                     })}
+                                </span>
                             </div>
                             <button onClick={() => setCart([])}>Remover todos</button>
                         </StyledTotal>

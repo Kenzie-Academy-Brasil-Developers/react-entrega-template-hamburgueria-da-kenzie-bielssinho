@@ -10,7 +10,7 @@ export const Card = ( { item, id, cart, setCart }: any) => {
 
         let prod: any= items.find(productCurrent => productCurrent.id == id);
         
-        prod.counter = 1
+        prod.counter = prod.counter ?? 1
 
         const verify = cart.find((product: any) => product.id === prod.id);
         if(!verify){
