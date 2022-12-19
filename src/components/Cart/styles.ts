@@ -49,10 +49,8 @@ export const BackgroundModal = styled.div`
     }
 
     ul > h2{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-top: 100px;
+        font-size: var(--title-3);
     }
 
     li{

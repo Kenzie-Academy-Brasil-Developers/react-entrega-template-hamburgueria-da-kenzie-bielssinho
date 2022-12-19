@@ -72,7 +72,7 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
             
             const toNavigate = location.state?.from?.pathname || `/dashboard/${response.data.user.name}`;
             
-            navigate(toNavigate, { replace: true }); 
+            navigate(toNavigate, { replace:true }); 
         } catch (error) {
             toast.error('Ops! Algo deu errado no Login')
         }
