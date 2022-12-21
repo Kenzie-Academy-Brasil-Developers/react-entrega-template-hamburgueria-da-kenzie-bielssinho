@@ -14,6 +14,7 @@ interface iAuthProviderValue{
     loading: boolean;
     submit(data: iFormLogin): Promise<void>;
     loadUser: () => Promise<void>;
+    autoLogin: () => void;
 }
 
 export interface iProducts{
@@ -35,7 +36,7 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
     
     const loadUser = async () => {
         const token = localStorage.getItem('@TOKEN');
-        const user = localStorage.getItem('@USER')
+        const user = localStorage.getItem('@USER');
 
         if(!token){
             setLoading(false);
@@ -52,8 +53,8 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
                 navigate(`/dashboard/${user}`);
             }
         } catch (error) {
-            navigate('/');
             localStorage.clear();
+            navigate('/');
         }finally{
             setLoading(false);
         } 
@@ -72,14 +73,23 @@ export const AuthProvider = ( {children}: iAuthProviderProps ) => {
             
             const toNavigate = location.state?.from?.pathname || `/dashboard/${response.data.user.name}`;
             
-            navigate(toNavigate, { replace:true }); 
+            navigate(toNavigate, { replace: true }); 
         } catch (error) {
             toast.error('Ops! Algo deu errado no Login')
         }
     }
 
+    const autoLogin = () => {
+        const token = localStorage.getItem('@TOKEN');
+        const user = localStorage.getItem('@USER');
+
+        if(token){
+            navigate(`/dashboard/${user}`)    
+        }
+    }
+
     return (
-        <AuthContext.Provider value ={{ items, loading, submit, loadUser }}>
+        <AuthContext.Provider value ={{ items, loading, submit, loadUser, autoLogin }}>
             {children}
         </AuthContext.Provider>
     )

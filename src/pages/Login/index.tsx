@@ -9,7 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorYup } from '../../styles/yupError';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 
@@ -19,7 +19,7 @@ export interface iFormLogin{
 }
 
 export const Login = () => {
-    const { submit, loadUser } = useContext(AuthContext);
+    const { submit, autoLogin } = useContext(AuthContext);
 
     const formLoginSchema = yup.object().shape({
         email: yup.string().required('E-mail obrigatório'),
@@ -30,7 +30,9 @@ export const Login = () => {
         resolver: yupResolver(formLoginSchema)
     })
 
-
+    useEffect(() => {
+        autoLogin()
+    }, [])
 
     return(
         <>
